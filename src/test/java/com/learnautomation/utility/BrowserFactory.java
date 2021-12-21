@@ -5,6 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 public class BrowserFactory {
 
     public static WebDriver startApplication(WebDriver driver, String browserName, String appURL) {
@@ -20,10 +23,12 @@ public class BrowserFactory {
         } else {
             System.out.println("Invalid Browser");
         }
-        PageUtil.implicitlyWait();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+       // PageUtil.implicitlyWait();
         driver.manage().window().maximize();
         driver.get(appURL);
-        PageUtil.implicitlyWait();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        //PageUtil.implicitlyWait();
         return driver;
     }
 

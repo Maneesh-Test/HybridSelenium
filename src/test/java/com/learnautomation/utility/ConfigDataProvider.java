@@ -9,7 +9,7 @@ public class ConfigDataProvider {
     Properties pro;
 
     public ConfigDataProvider() {
-        File src = new File(System.getProperty("user.dir") +"/Drivers/Config/Config.properties");
+        File src = new File(System.getProperty("user.dir") +"/Config/Config.properties");
         try {
             FileInputStream fis = new FileInputStream(src);
             pro = new Properties();

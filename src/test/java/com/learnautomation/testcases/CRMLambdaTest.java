@@ -17,10 +17,10 @@ public class CRMLambdaTest extends BasePage {
     public void setupSuite(Method method) {
         loginPage = new LoginPage(driver);
         dashBoardPage = new DashBoardPage(driver);
-        logger = reports.startTest("Hybrid Automation on CRM Lambda Webpage");
+        logger = reports.startTest("Automation Test on CRM Lambda Webpage");
     }
 
-    @Test
+    @Test(priority = 0)
     public void handleStartUp() {
         loginPage.navigateToDashboardPage();
         dashBoardPage.navigateToDashboardPage();

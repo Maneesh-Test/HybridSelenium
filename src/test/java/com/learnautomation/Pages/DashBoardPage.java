@@ -24,12 +24,9 @@ public class DashBoardPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//img[@class='aside__menu__icon' and @alt='Dashboard']")
     WebElement dashboardText;
 
-    public void dashBoardIsDisplayed() {
-        PageUtil.isPresent(dashBoardMenu);
-    }
 
-    public void verifyDashBoardText(String eText, String text) {
-        PageUtil.assertEquals(eText, text);
+    public void verifyDashBoardText(String actual, String expected) {
+        PageUtil.assertEquals(actual, expected);
     }
 
     public void navigateToDashboardPage() {

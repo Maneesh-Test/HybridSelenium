@@ -16,7 +16,6 @@ public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-
     }
 
     @FindBy(how = How.NAME, using = "email")
@@ -41,9 +40,9 @@ public class LoginPage extends BasePage {
         logger.log(LogStatus.INFO, "Started the Login Test");
         logger.log(LogStatus.INFO, "Enter User name and Password");
         enterCredentials(config.sendUsername(), config.sendPassword());
-        logger.log(LogStatus.PASS,"Click on Login button");
+        logger.log(LogStatus.PASS, "Click on Login button");
         clickOnLoginButton();
-        logger.log(LogStatus.PASS,"Login Successful");
+        logger.log(LogStatus.PASS, "Login Successful");
     }
 
 }

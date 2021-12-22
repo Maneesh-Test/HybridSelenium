@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 public class PageUtil extends BasePage {
 
-    public  static WebDriver driver;
+    public static WebDriver driver;
 
     public static final int SMALL_PAUSE = 3;
     public static final int MEDIUM_PAUSE = 5;
@@ -31,9 +31,12 @@ public class PageUtil extends BasePage {
     public static final int POLLING_TIME = 500;
 
     /**
+     * <h3>This method is used for the visibility of WebElement in the DOM</h3>
+     *
      * @param webElement
      * @param timeOut
-     * @return
+     * @return status
+     * @author Maneesh Chandra R
      */
     public static boolean waitForVisible(WebElement webElement, long timeOut) {
         boolean status = false;
@@ -48,8 +51,11 @@ public class PageUtil extends BasePage {
     }
 
     /**
+     * <p>This method is used to <i>Display WebElement</i> </p>
+     *
      * @param webElement
-     * @return
+     * @return status true/false
+     * @author Maneesh Chandra R
      */
     public static boolean isPresent(WebElement webElement) {
         boolean status = false;
@@ -173,13 +179,17 @@ public class PageUtil extends BasePage {
         }
     }
 
-    public static void assertEquals(String string1, String string2) {
+    /**
+     * @param actual
+     * @param expected
+     */
+    public static void assertEquals(String actual, String expected) {
         try {
-            if (string1.equals(string2)) {
-                logger.log(LogStatus.PASS, "Expected Text: " + string1 + " is equal to Actual Text: " + string2);
+            if (actual.equals(expected)) {
+                logger.log(LogStatus.PASS, "Actual Text: " + actual + " is equal to Expected Text: " + expected);
             } else {
-                logger.log(LogStatus.FAIL, "Expected Text: " + string1 + " is not equal to Actual Text: " + string2);
-                Assert.assertEquals(string1, string2);
+                logger.log(LogStatus.FAIL, "Actual Text: " + actual + " is not equal to Expected Text: " + expected);
+                Assert.assertEquals(actual, expected);
             }
         } catch (Exception e) {
             System.out.println("Assertion Failed: " + e.getMessage());
@@ -197,6 +207,10 @@ public class PageUtil extends BasePage {
         }
     }
 
+    /**
+     * Deprecated
+     */
+    @Deprecated
     public static void implicitlyWait() {
         try {
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -256,7 +270,7 @@ public class PageUtil extends BasePage {
                     break;
                 }
             } catch (Exception e) {
-                System.out.println("Element not found: "+e.getMessage());
+                System.out.println("Element not found: " + e.getMessage());
             }
         }
         return found;
